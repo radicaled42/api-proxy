@@ -6,12 +6,17 @@
       docker_image:
         name: nginx
         source: pull
-#    - name: Create volume
-#      docker_volume:
-#        name: nginx-data
-#        driver: local
+
     - name: Copying Index File
-      copy: src=files/index.html dest=/tmp/site-content/
+      copy: 
+        src: files/index.html 
+        dest: /tmp/site-content/
+
+    - name: Copying Nginx Configuration
+      copy:
+        src: files/nginx.conf
+        dest: /tmp/site-content/nginx.conf
+
     - name: Run nginx Docker container
       docker_container:
         name: nginx
@@ -21,3 +26,4 @@
           - "1080:1080"
         volumes:
           - "/tmp/site-content:/usr/share/nginx/html:ro"
+          - "/tmp/site-content/nginx.conf:/etc/nginx/conf.d/default.conf:ro"
