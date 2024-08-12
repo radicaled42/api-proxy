@@ -10,7 +10,7 @@
     - name: Copying haproxy Configuration
       copy:
         src: files/haproxy.cfg
-        dest: /tmp/haproxy/haproxy.cfg
+        dest: /tmp/haproxy/
 
     - name: Run haproxy Docker container
       docker_container:
