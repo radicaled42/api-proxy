@@ -11,7 +11,7 @@
         name: nginx-data
         driver: local
     - name: Copying Daemon File
-      copy: src=files/index.html.json dest=/usr/share/nginx/html
+      copy: src=files/index.html dest=/usr/share/nginx/html
     - name: Run nginx Docker container
       docker_container:
         name: nginx
