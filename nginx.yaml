@@ -1,0 +1,21 @@
+- name: Run nginx container
+  hosts: cluster
+  become: True
+  tasks:
+    - name: Pull nginx Docker image
+      docker_image:
+        name: nginx
+        source: pull
+    - name: Create volume
+      docker_volume:
+        name: nginx-data
+        driver: local
+    - name: Run nginx Docker container
+      docker_container:
+        name: nginx
+        image: nginx
+        state: started
+        ports:
+          - "80:80"
+        volumes:
+          - "nginx-data:/usr/share/nginx/html:ro"
