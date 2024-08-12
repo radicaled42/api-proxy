@@ -12,4 +12,4 @@
         image: gcr.io/google_containers/echoserver:1.8
         state: started
         ports:
-          - "80:80"
+          - "81:81"
