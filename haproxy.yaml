@@ -1,0 +1,17 @@
+- name: Run haproxy container
+  hosts: cluster
+  become: True
+  tasks:
+    - name: Pull haproxy Docker image
+      docker_image:
+        name: haproxy:3.0.3
+        source: pull
+
+    - name: Run haproxy Docker container
+      docker_container:
+        name: haproxy
+        image: haproxy:3.0.3
+        state: started
+        ports:
+          - "80:80"
+          - "8404:8404"
