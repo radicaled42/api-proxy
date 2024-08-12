@@ -6,12 +6,12 @@
       docker_image:
         name: nginx
         source: pull
-    - name: Create volume
-      docker_volume:
-        name: nginx-data
-        driver: local
+#    - name: Create volume
+#      docker_volume:
+#        name: nginx-data
+#        driver: local
     - name: Copying Daemon File
-      copy: src=files/index.html dest=/usr/share/nginx/html
+      copy: src=files/index.html dest=/tmp/site-content
     - name: Run nginx Docker container
       docker_container:
         name: nginx
@@ -20,4 +20,4 @@
         ports:
           - "80:80"
         volumes:
-          - "nginx-data:/usr/share/nginx/html:ro"
+          - "/tmp/site-content:/usr/share/nginx/html:ro"
