@@ -18,6 +18,6 @@
         image: nginx
         state: started
         ports:
-          - "80:80"
+          - "1080:1080"
         volumes:
           - "/tmp/site-content:/usr/share/nginx/html:ro"
