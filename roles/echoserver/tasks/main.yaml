@@ -1,0 +1,11 @@
+- name: Pull echoserver image
+  docker_image:
+    name: gcr.io/google_containers/echoserver:1.8
+    source: pull
+- name: Run echoserver container
+  docker_container:
+    name: echoserver
+    image: gcr.io/google_containers/echoserver:1.8
+    state: started
+    ports:
+      - "8080:8080"
