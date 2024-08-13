@@ -20,7 +20,7 @@
 
 - name: Replace server number
   replace:
-    path: /etc/example.conf
+    path: "/tmp/site-content-{{ instance_index }}/index.html"
     regexp: '#server#'
     replace: '{{ instance_index }}'
 
