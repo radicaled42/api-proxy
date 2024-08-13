@@ -1,5 +1,18 @@
----
 - hosts: cluster
   become: yes
-  roles:
-    - docker
+
+  vars:
+    echoserver: 2
+    nginx: 2
+
+  tasks:
+
+    - name: Install docker and dependecies
+      include_role:
+        name: docker
+    - name: Deploy Nginx instances
+      include_role:
+        name: nginx
+      vars:
+        instance_index: "{{ item }}"
+      loop: "{{ range(nginx) | list }}"
