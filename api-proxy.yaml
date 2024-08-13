@@ -10,9 +10,17 @@
     - name: Install docker and dependecies
       include_role:
         name: docker
+
     - name: Deploy Nginx instances
       include_role:
         name: nginx
       vars:
         instance_index: "{{ item }}"
       loop: "{{ range(nginx) | list }}"
+
+    - name: Deploy echoserver instances
+      include_role:
+        name: echoserver
+      vars:
+        instance_index: "{{ item }}"
+      loop: "{{ range(echoserver) | list }}"
