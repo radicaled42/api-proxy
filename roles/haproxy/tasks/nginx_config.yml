@@ -4,7 +4,7 @@
     msg: "Modifiying configuration for nginx-{{ item }}"
 
 - name: Run docker inspect command
-  shell: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nginx-{{ item }}"
+  shell: "docker inspect -f '{{ '{{' }} range .NetworkSettings.Networks }}{{ .IPAddress }}{{ '{{' }} end }}' nginx-{{ item }}"
   register: container_ip
 
 - name: Replace server number on index
