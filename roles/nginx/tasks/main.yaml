@@ -17,7 +17,12 @@
   copy:
     src: files/index.html
     dest: "/tmp/site-content-{{ instance_index }}/index.html"
-
+    
+- name: Copying Nginx Configuration
+  copy:
+    src: files/nginx.conf
+    dest: /tmp/site-content-{{ instance_index }}/nginx.conf
+    
 - name: Replace server number on index
   replace:
     path: "/tmp/site-content-{{ instance_index }}/index.html"
@@ -29,11 +34,6 @@
     path: "/tmp/site-content-{{ instance_index }}/nginx.conf"
     regexp: '#server#'
     replace: '{{ instance_index }}'
-
-- name: Copying Nginx Configuration
-  copy:
-    src: files/nginx.conf
-    dest: /tmp/site-content-{{ instance_index }}/nginx.conf
 
 - name: Run nginx Docker container
   docker_container:
