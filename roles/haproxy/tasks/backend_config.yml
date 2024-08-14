@@ -1,0 +1,16 @@
+---
+- name: Print iteration number
+  debug:
+    msg: "Modifiying configuration for {{ backend_type }}-{{ item }}"
+
+- name: "Get infos on container {{ backend_type }}-{{ item }}"
+  community.docker.docker_container_info:
+    name: "{{ backend_type }}-{{ item }}"
+  register: container_results
+
+- name: Replace server number on index
+  replace:
+    path: "/tmp/haproxy/haproxy.cfg"
+    regexp: '# {{ backend_type }}-backend'
+    replace: 'server {{ backend_type }}-{{ item }} {{ container_results.container.NetworkSettings.IPAddress }}:108{{ item }} check\n  # nginx-backend'
+  when: container_results.exists

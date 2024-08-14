@@ -14,9 +14,18 @@
     dest: /tmp/haproxy/
 
 - name: Add nginx servers to haproxy.cfg
-  include_tasks: nginx_config.yml
+  include_tasks: backend_config.yml
   loop: "{{ range(nginx_number) | list }}"
+  vars:
+    backend_type: "nginx"
   when: nginx_number is defined
+
+- name: Add echoserver servers to haproxy.cfg
+  include_tasks: backend_config.yml
+  loop: "{{ range(echoserver_number) | list }}"
+  vars:
+    backend_type: "echoserver"
+  when: echoserver_number is defined
 
 - name: Run haproxy Docker container
   docker_container:
