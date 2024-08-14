@@ -24,3 +24,10 @@
       vars:
         instance_index: "{{ item }}"
       loop: "{{ range(echoserver) | list }}"
+
+    - name: Deploy haproxy instances
+      include_role:
+        name: haproxy
+      vars:
+        echoserver_number: "{{ echoserver }}"
+        nginx_number: "{{ nginx }}"
