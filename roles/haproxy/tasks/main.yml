@@ -18,6 +18,7 @@
   loop: "{{ range(nginx_number) | list }}"
   vars:
     backend_type: "nginx"
+    port_range: "108"
   when: nginx_number is defined
 
 - name: Add echoserver servers to haproxy.cfg
@@ -25,6 +26,7 @@
   loop: "{{ range(echoserver_number) | list }}"
   vars:
     backend_type: "echoserver"
+    port_range: "808"
   when: echoserver_number is defined
 
 - name: Run haproxy Docker container

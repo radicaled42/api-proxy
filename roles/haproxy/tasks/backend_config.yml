@@ -12,5 +12,5 @@
   replace:
     path: "/tmp/haproxy/haproxy.cfg"
     regexp: '# {{ backend_type }}-backend'
-    replace: 'server {{ backend_type }}-{{ item }} {{ container_results.container.NetworkSettings.IPAddress }}:108{{ item }} check\n  # {{ backend_type }}-backend'
+    replace: 'server {{ backend_type }}-{{ item }} {{ container_results.container.NetworkSettings.IPAddress }}:{{ port_range }}{{ item }} check\n  # {{ backend_type }}-backend'
   when: container_results.exists
