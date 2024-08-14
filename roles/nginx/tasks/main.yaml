@@ -18,9 +18,15 @@
     src: files/index.html
     dest: "/tmp/site-content-{{ instance_index }}/index.html"
 
-- name: Replace server number
+- name: Replace server number on index
   replace:
     path: "/tmp/site-content-{{ instance_index }}/index.html"
+    regexp: '#server#'
+    replace: '{{ instance_index }}'
+
+- name: Replace server number on conf
+  replace:
+    path: "/tmp/site-content-{{ instance_index }}/nginx.conf"
     regexp: '#server#'
     replace: '{{ instance_index }}'
 
