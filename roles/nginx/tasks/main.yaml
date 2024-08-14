@@ -1,7 +1,7 @@
 ---
 - name: Deploy Nginx instance {{ instance_index }}
   debug:
-    msg: "Deploying Nginx instance number {{ instance_index }}"
+    msg: "Deploying Nginx instance {{ instance_index }}"
 
 - name: Pull nginx Docker image
   docker_image:

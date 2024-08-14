@@ -1,3 +1,8 @@
+---
+- name: Deploy Echoserver instance {{ instance_index }}
+  debug:
+    msg: "Deploying Echoserver instance {{ instance_index }}"
+
 - name: Pull echoserver image
   docker_image:
     name: gcr.io/google_containers/echoserver:1.8
