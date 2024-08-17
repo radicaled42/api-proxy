@@ -1,5 +1,5 @@
 ---
-- name: Print iteration number
+- name: Modifiying configuration for {{ backend_type }}-{{ item }}
   debug:
     msg: "Modifiying configuration for {{ backend_type }}-{{ item }}"
 
