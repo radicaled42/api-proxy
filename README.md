@@ -1,7 +1,8 @@
 # API Proxy with Vagrant
 
-The main goal is provide the necessary code to deploy a PoC
-infrastructure able to support a web application development lifecycle. Provide the Ansible code to deploy a PoC on Docker
+This is a simple approach on how to proxy different services on the same instance using Ansible.
+
+The main goal is provide the necessary code to deploy a PoC infrastructure able to support a web application development lifecycle. Provide the Ansible code to deploy a PoC on Docker
 with a Load Balancer that sends traffic to different backends depending on certain
 patterns:
 	- We will use HAProxy as a load balancer
