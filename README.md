@@ -31,7 +31,25 @@ Running the ansible playbook stand alone is really easy, you only need to use th
 
 > ansible-playbook -i inventory/hosts api-proxy.yml
 
-Sample Run: 
+### Manage multiple installations
+
+If you want to install multiple nginx and echoserver instances you will need to modify the api-proxy.yml file.
+
+1. Find the **api-proxy.yml**
+2. Locate the **vars** section
+3. Modify them as necessary
+
+**vars section**
+```
+vars:
+  echoserver: 2
+  nginx: 2
+```
+
+#### Sample Run
+
+This is a sample run of the Ansible playbook.
+
 ```
 /usr/local/Cellar/ansible/10.1.0/libexec/lib/python3.12/site-packages/paramiko/pkey.py:100: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from this module in 48.0.0.
   "cipher": algorithms.TripleDES,
