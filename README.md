@@ -208,3 +208,13 @@ You will need the following
 1. [Vagrant](https://www.vagrantup.com/)
 2. [VirtualBox](https://www.virtualbox.org/)
 3. [Ansible](https://www.ansible.com/)
+
+## Bibliography:
+- [How To Setup Vagrant and Virtual Box for Ubuntu 20.04!!](https://medium.com/devops-dudes/how-to-setup-vagrant-and-virtual-box-for-ubuntu-20-04-7374bf9cc3fa)
+- [Provisioning machines locally with Ansible and Vagrant](https://stribny.name/blog/provisioning-ansible-vagrant/)
+- [Run Haproxy With Docker](https://www.haproxy.com/blog/how-to-run-haproxy-with-docker#run-haproxy-with-docker)
+- [A Guide to Ansible with Vagrant](https://medium.com/@alokkavilkar/a-guide-to-ansible-with-vagrant-6fccf9c49591)
+
+**TODO**:
+[ ] Use handlers
+[ ] Check if its possible to use Jinja to do the replacements
